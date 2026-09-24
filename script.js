@@ -1,25 +1,289 @@
 const services = [
-  {id:"lbz",name:"ЛБЗ",icon:"▣",desc:"Выполнение личных боевых задач",price:"от $4",items:["1 задача — $4","Пакет из 5 задач — $15","Полный комплект — $41"]},
-  {id:"account",name:"Прокачка аккаунтов",icon:"▰",desc:"Победы, опыт и развитие техники",price:"от $12",items:["До 1 000 боёв — $12","1 000–5 000 боёв — $29","5 000+ боёв — от $59"]},
-  {id:"wn8",name:"Рейтинг / WN8",icon:"★",desc:"Повышение боевой эффективности",price:"от $18",items:["WN8 2 000 — $18","WN8 3 000 — $29","WN8 5 000+ — от $47"]},
-  {id:"battlepass",name:"Боевые пропуски",icon:"▤",desc:"Закрытие этапов и получение наград",price:"от $9",items:["Стандарт — $9","Улучшенный — $18","Полный — $29"]},
-  {id:"silver",name:"Фарм серебра",icon:"◉",desc:"Заработок игровой валюты",price:"от $8",items:["1 000 000 — $8","5 000 000 — $35","10 000 000 — $59"]},
-  {id:"other",name:"Другое",icon:"⚙",desc:"Индивидуальные игровые задачи",price:"Договорная",items:["Индивидуальный расчёт","Персональные условия"]}
+  {
+    id:"silver-frontline-wg",
+    name:"Фарм серебра — Линия фронта",
+    icon:"◉",
+    desc:"WG · 1 млн серебра · без статистики",
+    price:"от $1.55",
+    items:[
+      "Сервер: WG",
+      "1 000 000 серебра",
+      "Режим: Линия фронта",
+      "Без статистики"
+    ]
+  },
+  {
+    id:"silver-wn8-wg",
+    name:"Фарм серебра — WN8 2400+",
+    icon:"◉",
+    desc:"WG · 1 млн серебра со статистикой",
+    price:"от $2.03",
+    items:[
+      "Сервер: WG",
+      "1 000 000 серебра",
+      "WN8 2400+",
+      "Со статистикой"
+    ]
+  },
+  {
+    id:"silver-nostats-wg",
+    name:"Фарм серебра — без статистики",
+    icon:"◉",
+    desc:"WG · 1 млн серебра",
+    price:"от $1.81",
+    items:[
+      "Сервер: WG",
+      "1 000 000 серебра",
+      "Без статистики"
+    ]
+  },
+  {
+    id:"xp100k-wg",
+    name:"Фарм опыта — 100 000",
+    icon:"★",
+    desc:"WG · быстрая прокачка техники",
+    price:"от $10.66",
+    items:[
+      "Сервер: WG",
+      "100 000 опыта",
+      "Быстрое выполнение"
+    ]
+  },
+  {
+    id:"fossa-ru",
+    name:"Fossa VM 68 — ЛБЗ 3.0",
+    icon:"▣",
+    desc:"RU · Авангард / Засада / Поддержка",
+    price:"от $11.70",
+    note:"Цена в таблице — за 1 попытку выполнения ЛБЗ.",
+    table:{
+      headers:["№","Авангард","Засада","Поддержка"],
+      rows:[
+        ["1","$12","$8","$8"],
+        ["2","$8","$8","$8"],
+        ["3","$12","$12","$12"],
+        ["4","$8","$12","$6"],
+        ["5","$12","$12","$8"],
+        ["6","$8","$12","$12"],
+        ["7","$12","$12","$12"],
+        ["8","$8","$12","$6"],
+        ["9","$6","$12","$8"],
+        ["10","$6","$12","$8"],
+        ["11","$6","$10","$10"],
+        ["12","$12","$10","$10"],
+        ["13","$8","$12","$8"],
+        ["14","$6","$10","$8"],
+        ["15","$8","$10","$15"],
+        ["16","$6","$8","$10"],
+        ["17","$6","$12","$10"],
+        ["18","$12","$12","$10"],
+        ["19","$8","$15","$8"],
+        ["20","$8","$10","$8"],
+        ["21","$15","$12","$15"]
+      ]
+    }
+  },
+  {
+    id:"excalibur-wg",
+    name:"Excalibur — ЛБЗ 2.0",
+    icon:"▣",
+    desc:"WG · Союз / Блок / Альянс / Коалиция",
+    price:"от $1.11",
+    items:[
+      "Сервер: WG",
+      "ЛБЗ 2.0",
+      "Полный прайс по отдельным задачам — по запросу"
+    ],
+    note:"В исходном лоте подробные цены указаны в ₽, поэтому на сайте пока оставлена только стартовая цена в $. "
+  },
+  {
+    id:"chimera-wg",
+    name:"Chimera — ЛБЗ 2.0",
+    icon:"▣",
+    desc:"WG · Союз / Блок / Альянс / Коалиция",
+    price:"от $1.11",
+    table:{
+      headers:["№","Союз","Блок","Альянс","Коалиция"],
+      rows:[
+        ["1","$2","$3","$5","$2"],
+        ["2","$2","$4","$2","$2"],
+        ["3","$2","$2","$2","$3"],
+        ["4","$2","$2","$2","$2"],
+        ["5","$2","$2","$2","$3"],
+        ["6","$2","$2","$4","$2"],
+        ["7","$3","$2","$3","$2"],
+        ["8","$4","$2","$3","$3"],
+        ["9","$2","$2","$3","$2"],
+        ["10","$2","$2","$2","$3"],
+        ["11","$2","$5","$2","$3"],
+        ["12","$2","$2","$3","$2"],
+        ["13","$5","$5","$2","$4"],
+        ["14","$2","$2","$2","$5"],
+        ["15","$3 / $6","$2 / $4","$3 / $7","$4 / $7"]
+      ]
+    }
+  },
+  {
+    id:"obj279-wg",
+    name:"Объект 279 (р) — ЛБЗ 2.0",
+    icon:"▣",
+    desc:"WG · Союз / Блок / Альянс / Коалиция",
+    price:"от $1.27",
+    table:{
+      headers:["№","Союз","Блок","Альянс","Коалиция"],
+      rows:[
+        ["1","$4","$3","$3","$4"],
+        ["2","$4","$4","$4","$3"],
+        ["3","$4","$3","$4","$4"],
+        ["4","$3","$4","$4","$6"],
+        ["5","$4","$4","$4","$4"],
+        ["6","$4","$4","$4","$4"],
+        ["7","$5","$4","$4","$4"],
+        ["8","$3","$3","$5","$6"],
+        ["9","$3","$4","$4","$4"],
+        ["10","$4","$6","$5","$5"],
+        ["11","$4","$3","$4","$4"],
+        ["12","$4","$3","$4","$3"],
+        ["13","$10","$5","$7","$4"],
+        ["14","$4","$4","$3","$5"],
+        ["15","$5 / $9","$5 / $9","$5 / $9","$5 / $9"]
+      ]
+    }
+  },
+  {
+    id:"blackrock-wg",
+    name:"Black Rock — ЛБЗ 3.0",
+    icon:"▣",
+    desc:"WG · Авангард / Засада / Поддержка",
+    price:"от $4.99",
+    table:{
+      headers:["№","Авангард","Засада","Поддержка"],
+      rows:[
+        ["1","$10","$6","$12"],
+        ["2","$4","$6","$10"],
+        ["3","$6","$8","$6"],
+        ["4","$6","$6","$8"],
+        ["5","$8","$6","$6"],
+        ["6","$6","$6","$6"],
+        ["7","$6","$8","$8"],
+        ["8","$6","$8","$8"],
+        ["9","$8","$8","$8"],
+        ["10","$8","$8","$6"],
+        ["11","$4","$8","$8"],
+        ["12","$6","$6","$12"],
+        ["13","$8","$8","$12"],
+        ["14","$8","$10","$12"],
+        ["15","$6","$10","$16"]
+      ]
+    }
+  },
+  {
+    id:"dravec-wg",
+    name:"Dravec — ЛБЗ 3.0",
+    icon:"▣",
+    desc:"WG · Авангард / Засада / Поддержка",
+    price:"от $4.43",
+    table:{
+      headers:["№","Авангард","Засада","Поддержка"],
+      rows:[
+        ["1","$6","$4","$4"],
+        ["2","$4","$6","$4"],
+        ["3","$4","$6","$4"],
+        ["4","$4","$4","$4"],
+        ["5","$4","$6","$6"],
+        ["6","$4","$6","$6"],
+        ["7","$4","$6","$8"],
+        ["8","$4","$4","$8"],
+        ["9","$6","$6","$6"],
+        ["10","$4","$4","$8"],
+        ["11","$6","$4","$6"],
+        ["12","$6","$8","$6"],
+        ["13","$4","$6","$8"],
+        ["14","$6","$8","$4"],
+        ["15","$8","$12","$8"]
+      ]
+    }
+  },
+  {
+    id:"windhund-wg",
+    name:"Windhund — ЛБЗ 3.0",
+    icon:"▣",
+    desc:"WG · Авангард / Засада / Поддержка",
+    price:"от $4.43",
+    table:{
+      headers:["№","Авангард","Засада","Поддержка"],
+      rows:[
+        ["1","$2","$2","$2"],
+        ["2","$2","$3","$3"],
+        ["3","$2","$3","$2"],
+        ["4","$2","$2","$2"],
+        ["5","$2","$2","$2"],
+        ["6","$2","$2","$3"],
+        ["7","$2","$2","$4"],
+        ["8","$3","$3","$4"],
+        ["9","$2","$4","$3"],
+        ["10","$2","$2","$3"],
+        ["11","$4","$3","$3"],
+        ["12","$2","$4","$4"],
+        ["13","$3","$4","$2"],
+        ["14","$2","$2","$3"],
+        ["15","$4","$3","$4"]
+      ]
+    }
+  }
 ];
+
 const serviceCards = document.querySelector("#serviceCards");
 const priceGrid = document.querySelector("#priceGrid");
 const serviceSelect = document.querySelector("#serviceSelect");
+
+function makeTable(table){
+  if(!table) return "";
+  const head = table.headers.map(h=>`<th>${h}</th>`).join("");
+  const body = table.rows.map(row=>`<tr>${row.map(c=>`<td>${c}</td>`).join("")}</tr>`).join("");
+  return `
+    <details class="price-details">
+      <summary>Показать полный прайс</summary>
+      <div class="price-table-wrap">
+        <table class="price-table">
+          <thead><tr>${head}</tr></thead>
+          <tbody>${body}</tbody>
+        </table>
+      </div>
+    </details>`;
+}
 
 services.forEach(s=>{
   serviceCards.insertAdjacentHTML("beforeend",`
     <article class="service-card">
       <div class="service-icon">${s.icon}</div>
-      <h3>${s.name}</h3><p>${s.desc}</p>
+      <h3>${s.name}</h3>
+      <p>${s.desc}</p>
+      <p class="service-start-price">${s.price}</p>
       <button type="button" data-service="${s.id}" aria-label="Выбрать ${s.name}">→</button>
     </article>`);
+
+  const list = s.items?.length
+    ? `<ul>${s.items.map(i=>`<li>${i}</li>`).join("")}</ul>`
+    : "";
+
   priceGrid.insertAdjacentHTML("beforeend",`
-    <article class="price-card"><h3>${s.name}</h3><p>${s.price}</p><ul>${s.items.map(i=>`<li>${i}</li>`).join("")}</ul></article>`);
-  serviceSelect.insertAdjacentHTML("beforeend",`<option value="${s.id}">${s.name}</option>`);
+    <article class="price-card">
+      <h3>${s.name}</h3>
+      <p class="price-main">${s.price}</p>
+      <p>${s.desc}</p>
+      ${list}
+      ${makeTable(s.table)}
+      ${s.note ? `<p class="price-note">${s.note}</p>` : ""}
+      <button class="btn btn-primary price-order-btn" type="button" data-service="${s.id}">
+        Заказать →
+      </button>
+    </article>`);
+
+  serviceSelect.insertAdjacentHTML(
+    "beforeend",
+    `<option value="${s.id}">${s.name}</option>`
+  );
 });
 
 document.addEventListener("click",e=>{
@@ -29,20 +293,47 @@ document.addEventListener("click",e=>{
     document.querySelector("#order").scrollIntoView({behavior:"smooth"});
   }
 });
-document.querySelector(".menu-toggle").addEventListener("click",()=>document.querySelector(".nav").classList.toggle("open"));
-document.querySelectorAll(".nav a").forEach(a=>a.addEventListener("click",()=>document.querySelector(".nav").classList.remove("open")));
+
+document.querySelector(".menu-toggle").addEventListener("click",()=>{
+  document.querySelector(".nav").classList.toggle("open");
+});
+
+document.querySelectorAll(".nav a").forEach(a=>{
+  a.addEventListener("click",()=>{
+    document.querySelector(".nav").classList.remove("open");
+  });
+});
 
 document.querySelector("#orderForm").addEventListener("submit",e=>{
   e.preventDefault();
   const service=services.find(s=>s.id===serviceSelect.value)?.name;
-  const text=`Здравствуйте! Хочу заказать услугу WOT-BOOST.\nУслуга: ${service}\nНикнейм: ${document.querySelector("#nickname").value}\nРегион: ${document.querySelector("#region").value}\nЗадача: ${document.querySelector("#details").value}`;
-  document.querySelector("#formStatus").textContent="Заявка сформирована. Нажми кнопку ниже, чтобы открыть Telegram.";
+  const text=`Здравствуйте! Хочу заказать услугу WOT-BOOST.
+Услуга: ${service}
+Никнейм: ${document.querySelector("#nickname").value}
+Регион: ${document.querySelector("#region").value}
+Задача: ${document.querySelector("#details").value}`;
+
+  document.querySelector("#formStatus").textContent=
+    "Заявка сформирована. Нажми кнопку ниже, чтобы открыть Telegram.";
+
   let old=document.querySelector("#telegramSend");
   if(old) old.remove();
-  const a=document.createElement("a");a.id="telegramSend";a.className="btn btn-primary";a.href="https://t.me/Booster_Wot?text="+encodeURIComponent(text);a.target="_blank";a.rel="noopener";a.textContent="Отправить в Telegram →";
+
+  const a=document.createElement("a");
+  a.id="telegramSend";
+  a.className="btn btn-primary";
+  a.href="https://t.me/Booster_Wot?text="+encodeURIComponent(text);
+  a.target="_blank";
+  a.rel="noopener";
+  a.textContent="Отправить в Telegram →";
   document.querySelector("#orderForm").appendChild(a);
 });
+
 document.querySelector("#copyDiscord").addEventListener("click",async()=>{
-  try{await navigator.clipboard.writeText("vaviaboosterwot");alert("Discord-ник скопирован: vaviaboosterwot");}
-  catch{alert("Discord: vaviaboosterwot");}
+  try{
+    await navigator.clipboard.writeText("vaviaboosterwot");
+    alert("Discord-ник скопирован: vaviaboosterwot");
+  }catch{
+    alert("Discord: vaviaboosterwot");
+  }
 });
